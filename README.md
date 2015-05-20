@@ -30,10 +30,10 @@ The object of the game is to set all the elements to 0.
 
 ## Suggested steps
 
--  start with a single light and fliping on/off just one light.
--  create a vector of light where you can flip a single light.
--  create a 3x3 grid where you can flip a single light.
--  implement flipping the light + neighbors on click.
+-  start with a single light and turning on/off just one light.
+-  create a vector of light where you can turn on/off a single light.
+-  create a 3x3 grid where you can turn on/off a single light.
+-  implement turn on/off the light + neighbors on click.
 -  for fun:
   -  have more than one game in a single page.
   -  have 2 connected games in the page.
@@ -44,7 +44,29 @@ The object of the game is to set all the elements to 0.
 ```
   lein new reagent lights-out
   lein figwheel
-  edit src/cljs/lights-out/core.cljs
+  edit src/cljs/lights_out/core.cljs
 ```
 
-  delete most of the contents of core.cljs to start from 0.
+  Delete most of the contents of core.cljs to start from cero.
+  Start with something like:
+  
+```clojure
+(ns lights-out.core
+    (:require [reagent.core :as reagent :refer [atom]]))
+
+;; -------------------------
+;; Views
+
+(defn current-page []
+  [:div [:h1 "lights out!"]])
+
+;; -------------------------
+;; Initialize app
+(defn mount-root []
+  (reagent/render [current-page] (.getElementById js/document "app")))
+
+(defn init! []
+  (mount-root))
+```
+  
+   
