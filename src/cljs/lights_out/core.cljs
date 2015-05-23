@@ -9,21 +9,17 @@
 (def neighbor [[0 0] [1 0] [0 1] [-1 0] [0 -1]])
 
 (defn toggle-val [l]
-  (if (= 0 l) 1 0)
-)
+  (if (= 0 l) 1 0))
 
 (defn flip-light [lights [x y]]
-  (update-in lights [y x] toggle-val)
-)
+  (update-in lights [y x] toggle-val))
 
 (defn add-pos [a b]
-  (mapv + a b)
-)
+  (mapv + a b))
 
 (defn out-grid [min max [x y]]
   (not (or (or (> x max) (< x min))
-           (or (> y max) (< y min))))
-)
+           (or (> y max) (< y min)))))
 
 ;; assumes square box
 (defn neighbors [pos-x-y max]
